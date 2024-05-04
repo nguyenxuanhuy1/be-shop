@@ -8,6 +8,8 @@ import { AuthModule } from './auth/auth.module';
 import { Auth } from './auth/entities/auth.entity';
 import { DetailUserModule } from './detail-user/detail-user.module';
 import { DetailUser } from './detail-user/entities/detail-user.entity';
+import { OrdersModule } from './orders/orders.module';
+import { Order } from './orders/entities/order.entity';
 
 @Module({
   imports: [
@@ -18,7 +20,7 @@ import { DetailUser } from './detail-user/entities/detail-user.entity';
       username: 'postgres',
       password: '123456',
       database: 'DBLQ',
-      entities: [AccReg, Auth, DetailUser],
+      entities: [AccReg, Auth, DetailUser, Order],
       // logging: ['query', 'warn', 'error'],
       synchronize: true,
     }),
@@ -27,6 +29,7 @@ import { DetailUser } from './detail-user/entities/detail-user.entity';
     MulterModule.register({ dest: './public/upload' }),
     AuthModule,
     DetailUserModule,
+    OrdersModule,
   ],
 })
 export class AppModule { }
